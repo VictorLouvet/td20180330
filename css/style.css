@@ -1,0 +1,29 @@
+footer{
+    background-color: black;
+    color: white;
+    margin-top: 20px;
+
+    padding: 10px 30px;
+}
+
+ul.menu-famille{
+    list-style-type: none;
+    padding-left: 0;
+}
+
+ul.menu-famille li {
+
+    margin-bottom: 10px;
+}
+
+header{
+    margin-bottom: 20px;
+}
+
+.blocpokemon>div{
+    margin-bottom: 20px;
+}
+
+.blocpokemon>div:last-child{
+    margin-bottom: 0;
+}
