@@ -1,3 +1,23 @@
+<?php
+
+try{
+    $db = new PDO(
+        "mysql:dbname=pokemonsite;host=localhost",
+        "root",
+        ""
+    );
+}catch (PDOException $exception){
+    echo "Erreur : ".$exception->getMessage();
+}
+
+
+$reponse = $db->query("SELECT * FROM pokemon");
+
+
+
+?>
+
+
 <!doctype html>
 <html lang="fr">
 <head>
@@ -63,34 +83,28 @@
 
         </div>
         <div class="col-9">
-            <!-- début affiche pokemon-->
-            <div class="row blocpokemon">
-                <div class="col-3">
-                    <img src="//via.placeholder.com/150x150" alt="" class="img-fluid">
+
+            <?php
+            while ($ligne = $reponse->fetch()){
+                echo "<!-- début affiche pokemon-->
+            <div class=\"row blocpokemon\">
+                <div class=\"col-3\">
+                    <img src=\"//via.placeholder.com/150x150\" alt=\"\" class=\"img-fluid\">
                 </div>
-                <div class="col-9">
-                    <h4>Nom du pokemon</h4>
+                <div class=\"col-9\">
+                    <h4>" .$ligne['nom']. "</h4>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci assumenda blanditiis dolorum
                         ducimus eveniet ex exercitationem facilis inventore, ipsa maxime mollitia nesciunt officiis
                         praesentium quisquam repellendus suscipit, tempore vero?</p>
                 </div>
 
             </div>
-            <!-- fin affiche pokemon-->
-            <!-- début affiche pokemon-->
-            <div class="row blocpokemon">
-                <div class="col-3">
-                    <img src="//via.placeholder.com/150x150" alt="" class="img-fluid">
-                </div>
-                <div class="col-9">
-                    <h4>Nom du pokemon</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci assumenda blanditiis dolorum
-                        ducimus eveniet ex exercitationem facilis inventore, ipsa maxime mollitia nesciunt officiis
-                        praesentium quisquam repellendus suscipit, tempore vero?</p>
-                </div>
+            <!-- fin affiche pokemon-->";
+            }
+            ?>
 
-            </div>
-            <!-- fin affiche pokemon-->
+
+
         </div>
     </div>
 
